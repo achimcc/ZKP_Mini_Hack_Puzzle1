@@ -50,7 +50,7 @@ impl SemaphoreProver {
 
                 // -- nullifier section of the trace --
                 state[12] = Felt::new(8);
-                state[13] = Felt::ZERO;
+                state[13] = Felt::new(1);
                 state[14] = Felt::ZERO;
                 state[15] = Felt::ZERO;
                 state[16] = priv_key[0];
