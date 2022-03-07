@@ -3,7 +3,7 @@ use prompt::{puzzle, welcome};
 use semaphore::{AccessSet, PrivKey, PubKey};
 use std::{io::Write, time::Instant};
 use winter_utils::Serializable;
-use winterfell::crypto::{hashers::Rp64_256 as Rescue, Hasher};
+use winterfell::{math::{fields::f64::BaseElement as Felt}, crypto::{hashers::Rp64_256 as Rescue, Hasher}};
 
 
 // Type to create Nullifier from Field Elements
@@ -71,6 +71,10 @@ pub fn main() {
     // print out some stats about the proof
 //    / debug!("{}", signal);
     debug!("---------------------");
+
+    // define new Nullifier from println! output of trace computation after modifying init value:
+
+    let new_nullifier = Digest::new([Felt::new(9608324101380179044), Felt::new(6673166623546901979),  Felt::new(15241391105138043328),Felt::new(15857150252517437346)]);
 
     // the signal should be valid against this topic
     let now = Instant::now();
