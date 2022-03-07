@@ -76,9 +76,13 @@ pub fn main() {
 
     let new_nullifier = Digest::new([Felt::new(9608324101380179044), Felt::new(6673166623546901979),  Felt::new(15241391105138043328),Felt::new(15857150252517437346)]);
 
+    // define new signal with replaced Nullifier:
+
+    let new_signal = semaphore::Signal { nullifier: new_nullifier, proof: signal.proof };
+
     // the signal should be valid against this topic
     let now = Instant::now();
-    match access_set.verify_signal(TOPIC, signal.clone()) {
+    match access_set.verify_signal(TOPIC, new_signal.clone()) {
         Ok(_) => debug!(
             "Signal verified in {:.1} ms",
             now.elapsed().as_micros() as f64 / 1000f64
