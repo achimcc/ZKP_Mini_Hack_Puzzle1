@@ -132,6 +132,10 @@ impl Air for SemaphoreAir {
             Assertion::single(21, 0, self.topic[1]),
             Assertion::single(22, 0, self.topic[2]),
             Assertion::single(23, 0, self.topic[3]),
+            // Uncomment the next three lines to make the Semaphore protocol resistant against the applied attack:
+            // Assertion::single(13, 0, Felt::ZERO),
+            // Assertion::single(14, 0, Felt::ZERO),
+            // Assertion::single(15, 0, Felt::ZERO),
         ]
     }
 
