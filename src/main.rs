@@ -62,7 +62,7 @@ pub fn main() {
     );
 
     // print out some stats about the proof
-    debug!("{}", signal);
+//    / debug!("{}", signal);
     debug!("---------------------");
 
     // the signal should be valid against this topic

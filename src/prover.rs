@@ -80,6 +80,8 @@ impl SemaphoreProver {
                     // computation
                     apply_rescue_round(&mut state[12..24], cycle_pos);
                 } else {
+                    println!("Hash Cycle done! Nullifier: {:?}", state[16..20].as_ref());
+
                     let index_bit = Felt::new(((key_index >> cycle_num) & 1) as u64);
                     let path_node: [Felt; 4] = merkle_path[cycle_num].into();
 
