@@ -3,6 +3,13 @@ use prompt::{puzzle, welcome};
 use semaphore::{AccessSet, PrivKey, PubKey};
 use std::{io::Write, time::Instant};
 use winter_utils::Serializable;
+use winterfell::crypto::{hashers::Rp64_256 as Rescue, Hasher};
+
+
+// Type to create Nullifier from Field Elements
+// ================================================================================================
+
+type Digest = <Rescue as Hasher>::Digest;
 
 // DATA
 // ================================================================================================
