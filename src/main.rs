@@ -78,11 +78,11 @@ pub fn main() {
 
     // define new signal with replaced Nullifier:
 
-    let new_signal = semaphore::Signal { nullifier: new_nullifier, proof: signal.proof };
+    let signal = semaphore::Signal { nullifier: new_nullifier, proof: signal.proof };
 
     // the signal should be valid against this topic
     let now = Instant::now();
-    match access_set.verify_signal(TOPIC, new_signal.clone()) {
+    match access_set.verify_signal(TOPIC, signal.clone()) {
         Ok(_) => debug!(
             "Signal verified in {:.1} ms",
             now.elapsed().as_micros() as f64 / 1000f64
